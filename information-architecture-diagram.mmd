@@ -1,0 +1,106 @@
+graph TD
+    A[홈 /] --> B[로그인 /login]
+    A --> C[상품 관리 /product-management]
+    A --> D[예약 관리 /reservation]
+    A --> E[주문 관리 /order/product]
+    A --> F[회원 관리 /member]
+    A --> G[배너 관리 /banner]
+    A --> H[게시판 관리 /notice]
+    A --> I[쿠폰 관리 /coupon]
+    A --> J[리뷰 관리 /review]
+    A --> K[관리자 계정 /account]
+    A --> L[정책 관리 /policy]
+    
+    C --> C1[체험 상품<br/>/product-management/experience]
+    C --> C2[체험단 상품<br/>/product-management/campaign]
+    C --> C3[숙소 상품<br/>/product-management/accommodation]
+    C --> C4[쇼핑 상품<br/>/product-management/product]
+    
+    C1 --> C1a[상품 목록]
+    C1 --> C1b[상품 상세<br/>/experience/[id]]
+    C1 --> C1c[상품 생성<br/>/experience/new]
+    C1 --> C1d[상품 수정<br/>/experience/[id]/edit]
+    
+    C2 --> C2a[상품 목록]
+    C2 --> C2b[상품 상세<br/>/campaign/[id]]
+    C2 --> C2c[상품 생성<br/>/campaign/new]
+    C2 --> C2d[상품 수정<br/>/campaign/[id]/edit]
+    
+    C3 --> C3a[상품 목록]
+    C3 --> C3b[상품 상세<br/>/accommodation/[id]]
+    C3 --> C3c[상품 생성<br/>/accommodation/new]
+    C3 --> C3d[상품 수정<br/>/accommodation/[id]/edit]
+    C3 --> C3e[업체 관리<br/>/accommodation/company/new]
+    
+    C4 --> C4a[상품 목록]
+    C4 --> C4b[상품 상세<br/>/product/[id]]
+    C4 --> C4c[상품 생성<br/>/product/new]
+    C4 --> C4d[상품 수정<br/>/product/[id]/edit]
+    
+    D --> D1[체험 예약<br/>/reservation/experience]
+    D --> D2[체험단 예약<br/>/reservation/campaign]
+    D --> D3[숙소 예약<br/>/reservation/accommodation]
+    
+    D1 --> D1a[예약 목록]
+    D1 --> D1b[예약 상세<br/>/reservation/experience/[id]]
+    
+    D2 --> D2a[예약 목록]
+    D2 --> D2b[예약 상세<br/>/reservation/campaign/[id]]
+    
+    D3 --> D3a[예약 목록]
+    D3 --> D3b[예약 상세<br/>/reservation/accommodation/[id]]
+    
+    E --> E1[주문 목록]
+    E --> E2[주문 상세<br/>/order/product/[id]]
+    
+    F --> F1[회원 목록]
+    F --> F2[회원 상세<br/>/member/[id]]
+    
+    G --> G1[메인 배너<br/>/banner/main]
+    G --> G2[서브 배너<br/>/banner/sub]
+    
+    G1 --> G1a[배너 목록]
+    G1 --> G1b[배너 상세<br/>/banner/main/[id]]
+    G1 --> G1c[배너 생성<br/>/banner/main/new]
+    G1 --> G1d[배너 수정<br/>/banner/main/[id]/edit]
+    
+    G2 --> G2a[배너 목록]
+    G2 --> G2b[배너 상세<br/>/banner/sub/[id]]
+    G2 --> G2c[배너 생성<br/>/banner/sub/new]
+    G2 --> G2d[배너 수정<br/>/banner/sub/[id]/edit]
+    
+    H --> H1[공지 목록]
+    H --> H2[공지 상세<br/>/notice/[id]]
+    H --> H3[공지 생성<br/>/notice/new]
+    H --> H4[공지 수정<br/>/notice/[id]/edit]
+    
+    I --> I1[쿠폰 목록]
+    I --> I2[쿠폰 상세<br/>/coupon/[id]]
+    I --> I3[쿠폰 생성<br/>/coupon/new]
+    I --> I4[쿠폰 수정<br/>/coupon/[id]/edit]
+    
+    J --> J1[체험 리뷰<br/>/review/experience]
+    J --> J2[체험단 리뷰<br/>/review/campaign]
+    J --> J3[숙소 리뷰<br/>/review/accommodation]
+    J --> J4[상품 리뷰<br/>/review/product]
+    J --> J5[리뷰 상세<br/>/review/[id]]
+    
+    K --> K1[계정 목록]
+    K --> K2[계정 상세<br/>/account/[id]]
+    K --> K3[비밀번호 변경<br/>/account/password/reset]
+    
+    L --> L1[서비스 이용약관<br/>/policy/service-terms]
+    L --> L2[개인정보 처리방침<br/>/policy/privacy]
+    L --> L3[환불 정책<br/>/policy/refund]
+    
+    classDef rootNode fill:#FF6B6B,stroke:#333,stroke-width:3px,color:#fff
+    classDef level1 fill:#4ECDC4,stroke:#333,stroke-width:2px,color:#000
+    classDef level2 fill:#45B7D1,stroke:#333,stroke-width:2px,color:#000
+    classDef level3 fill:#96CEB4,stroke:#333,stroke-width:2px,color:#000
+    classDef level4 fill:#FFEAA7,stroke:#333,stroke-width:2px,color:#000
+    
+    class A rootNode
+    class B,C,D,E,F,G,H,I,J,K,L level1
+    class C1,C2,C3,C4,D1,D2,D3,G1,G2 level2
+    class C1a,C1b,C1c,C1d,C2a,C2b,C2c,C2d,C3a,C3b,C3c,C3d,C3e,C4a,C4b,C4c,C4d,D1a,D1b,D2a,D2b,D3a,D3b,E1,E2,F1,F2,G1a,G1b,G1c,G1d,G2a,G2b,G2c,G2d,H1,H2,H3,H4,I1,I2,I3,I4,J1,J2,J3,J4,J5,K1,K2,K3,L1,L2,L3 level3
+
