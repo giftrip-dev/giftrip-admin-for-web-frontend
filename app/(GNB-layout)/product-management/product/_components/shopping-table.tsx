@@ -93,7 +93,7 @@ export function ShoppingTable({
     }),
     columnHelper.accessor("isAvailableToPurchase", {
       cell: (data) =>
-        data.getValue() ? (
+        data.getValue() !== false ? (
           <span className="text-status-clear">판매 중</span>
         ) : (
           <span className="text-status-error">판매 중단</span>
