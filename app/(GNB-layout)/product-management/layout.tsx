@@ -21,7 +21,7 @@ const ProductManagementLayout = ({
     { value: PRODUCT_TYPES.EXPERIENCE, label: "여행" },
     { value: PRODUCT_TYPES.CAMPAIGN, label: "체험단" },
     { value: PRODUCT_TYPES.ACCOMMODATION, label: "숙소" },
-    { value: PRODUCT_TYPES.PRODUCT, label: "상품" },
+    { value: PRODUCT_TYPES.PRODUCT, label: "맛집" },
   ];
 
   // 현재 탭

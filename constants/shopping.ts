@@ -3,6 +3,7 @@ import { ShoppingCategory } from "@/app/api/dto/shopping";
 // 라벨 매핑 객체
 export const SHOPPING_CATEGORY_LABEL: Record<ShoppingCategory, string> = {
   [ShoppingCategory.ALL]: "전체",
+  [ShoppingCategory.TRAVEL]: "맛집",
   [ShoppingCategory.SPECIALITY]: "특산물",
   [ShoppingCategory.LOCAL]: "지역특산품",
   [ShoppingCategory.SOUVENIR]: "기념품",
