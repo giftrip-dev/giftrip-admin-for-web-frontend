@@ -4,6 +4,7 @@ import { AppliedCoupon } from "./coupon";
 // 쇼핑 상품 카테고리
 export enum ShoppingCategory {
   ALL = "all", // 전체
+  TRAVEL = "travel", // 맛집
   SPECIALITY = "speciality", // 특산물
   LOCAL = "local", // 지역특산품
   SOUVENIR = "souvenir", // 기념품
