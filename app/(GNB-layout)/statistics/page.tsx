@@ -38,7 +38,12 @@ const hourlyVisitors = [
 
 const channelPerformance = [
   { channel: "네이버 검색", visitors: 4210, clicks: 1814, conversion: "5.1%" },
-  { channel: "카카오 모먼트", visitors: 2975, clicks: 1102, conversion: "4.3%" },
+  {
+    channel: "카카오 모먼트",
+    visitors: 2975,
+    clicks: 1102,
+    conversion: "4.3%",
+  },
   { channel: "자사 뉴스레터", visitors: 1830, clicks: 642, conversion: "6.7%" },
   { channel: "인스타그램", visitors: 1465, clicks: 389, conversion: "3.9%" },
 ];
@@ -96,7 +101,9 @@ const StatisticsPage = () => {
         </p>
         <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
           <div>
-            <h1 className="text-3xl font-semibold text-gray-900">통계 대시보드</h1>
+            <h1 className="text-3xl font-semibold text-gray-900">
+              통계 대시보드
+            </h1>
             <p className="text-sm text-gray-500">
               {today} 집계 · 실시간 지표는 10분 단위로 갱신됩니다.
             </p>
@@ -140,11 +147,19 @@ const StatisticsPage = () => {
         <article className="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-lg font-semibold text-gray-900">시간대별 방문</h2>
-              <p className="text-sm text-gray-500">피크 타임 {peakVisitors}명 기록</p>
+              <h2 className="text-lg font-semibold text-gray-900">
+                시간대별 방문
+              </h2>
+              <p className="text-sm text-gray-500">
+                피크 타임 {peakVisitors}명 기록
+              </p>
             </div>
             <span className="text-xs text-gray-400">
-              최근 업데이트 · {new Date().toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit" })}
+              최근 업데이트 ·{" "}
+              {new Date().toLocaleTimeString("ko-KR", {
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
             </span>
           </div>
           <div className="mt-8 grid grid-cols-8 gap-4">
@@ -168,11 +183,16 @@ const StatisticsPage = () => {
         </article>
 
         <article className="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-gray-900">유입 채널 성과</h2>
+          <h2 className="text-lg font-semibold text-gray-900">
+            유입 채널 성과
+          </h2>
           <p className="text-sm text-gray-500">클릭 대비 구매율 비교</p>
           <div className="mt-6 space-y-5">
             {channelPerformance.map((channel) => (
-              <div key={channel.channel} className="rounded-2xl border border-gray-100 p-4">
+              <div
+                key={channel.channel}
+                className="rounded-2xl border border-gray-100 p-4"
+              >
                 <div className="flex items-center justify-between">
                   <p className="text-base font-semibold text-gray-900">
                     {channel.channel}
@@ -199,7 +219,9 @@ const StatisticsPage = () => {
         <article className="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-lg font-semibold text-gray-900">인기 상품 랭킹</h2>
+              <h2 className="text-lg font-semibold text-gray-900">
+                인기 상품 랭킹
+              </h2>
               <p className="text-sm text-gray-500">클릭 · 구매 · 환불 지표</p>
             </div>
             <span className="text-xs text-gray-400">최근 24시간</span>
@@ -217,7 +239,9 @@ const StatisticsPage = () => {
               <tbody className="divide-y divide-gray-100 bg-white">
                 {productLeaderboard.map((product) => (
                   <tr key={product.product}>
-                    <td className="px-4 py-4 text-gray-900">{product.product}</td>
+                    <td className="px-4 py-4 text-gray-900">
+                      {product.product}
+                    </td>
                     <td className="px-4 py-4 font-semibold text-gray-900">
                       {numberFormatter.format(product.clicks)}
                     </td>
@@ -237,17 +261,26 @@ const StatisticsPage = () => {
         <article className="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-lg font-semibold text-gray-900">환불 사유 요약</h2>
+              <h2 className="text-lg font-semibold text-gray-900">
+                환불 사유 요약
+              </h2>
               <p className="text-sm text-gray-500">주요 이슈 모니터링</p>
             </div>
             <span className="text-xs text-gray-400">전일 대비 -1건</span>
           </div>
           <div className="mt-6 space-y-4">
             {refundReasons.map((item) => (
-              <div key={item.reason} className="rounded-2xl border border-gray-100 p-4">
+              <div
+                key={item.reason}
+                className="rounded-2xl border border-gray-100 p-4"
+              >
                 <div className="flex items-center justify-between">
-                  <p className="text-base font-semibold text-gray-900">{item.reason}</p>
-                  <span className="text-sm font-medium text-gray-500">{item.ratio}</span>
+                  <p className="text-base font-semibold text-gray-900">
+                    {item.reason}
+                  </p>
+                  <span className="text-sm font-medium text-gray-500">
+                    {item.ratio}
+                  </span>
                 </div>
                 <div className="mt-3 flex items-center justify-between text-sm text-gray-600">
                   <p>건수</p>
@@ -271,4 +304,3 @@ const StatisticsPage = () => {
 };
 
 export default StatisticsPage;
-
