@@ -12,6 +12,7 @@ import {
   PASSWORD_RESET_PAGE,
   RESERVATION_EXPERIENCE_PAGE,
   REVIEW_EXPERIENCE_PAGE,
+  STATISTICS_PAGE,
   SUB_BANNER_PAGE,
 } from "@/constants/path";
 import { SERVICE_NAME } from "@/constants/service";
@@ -37,6 +38,11 @@ const GlobalNavBar = () => {
   };
 
   const menuArray = [
+    {
+      label: "통계",
+      icon: "credit",
+      path: `${STATISTICS_PAGE}?prev=1`,
+    },
     {
       label: "상품 관리",
       icon: "product",

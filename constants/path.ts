@@ -1,5 +1,8 @@
 export const LOGIN_PAGE = "/login";
 
+// [대시보드]
+export const STATISTICS_PAGE = "/statistics"; // 통계 대시보드 페이지
+
 // [상품 관리]
 export const PRODUCT_MANAGEMENT_PAGE = "/product-management"; // 상품 관리 페이지
 export const EXPERIENCE_PRODUCT_PAGE = "/product-management/experience"; // 체험 상품 관리 페이지
