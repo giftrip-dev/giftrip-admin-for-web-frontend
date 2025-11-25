@@ -83,7 +83,8 @@ const StatisticsPage = () => {
   // API 데이터를 기반으로 메트릭 계산
   const todayVisitors = data.users.todayNewUsers || data.users.activeUsers || 0;
   const productClicks = data.products.totalViewCount || 0;
-  const completedOrders = data.orders.completedOrders || data.orders.todayOrders || 0;
+  const completedOrders =
+    data.orders.completedOrders || data.orders.todayOrders || 0;
   const refundCount = data.orders.canceledOrders || 0;
 
   // 전환율 계산
