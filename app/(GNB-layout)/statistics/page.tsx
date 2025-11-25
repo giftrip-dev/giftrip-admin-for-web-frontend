@@ -508,7 +508,9 @@ const StatisticsPage = () => {
                 ) : (
                   <>
                     <p className="mt-3 text-3xl font-semibold text-gray-900">
-                      {numberFormatter.format(stat.value)}
+                      {typeof stat.value === "number"
+                        ? numberFormatter.format(stat.value)
+                        : stat.value}
                     </p>
                     {stat.helper && (
                       <p className="mt-4 text-xs text-gray-500">
