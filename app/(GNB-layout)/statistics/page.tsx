@@ -1,29 +1,6 @@
-const overviewMetrics = [
-  {
-    label: "오늘 방문자 수",
-    value: 1380,
-    change: "+6.8%",
-    helper: "전일 1,293명",
-  },
-  {
-    label: "상품 상세 클릭 수",
-    value: 9321,
-    change: "+5.6%",
-    helper: "TOP 상품: 제주 그랑블루 요트",
-  },
-  {
-    label: "구매 완료 수",
-    value: 687,
-    change: "+3.1%",
-    helper: "전환율 7.4%",
-  },
-  {
-    label: "환불 접수 건수",
-    value: 24,
-    change: "-1.6%",
-    helper: "주요 사유: 날씨",
-  },
-];
+"use client";
+
+import { useGetStatistics } from "@/hooks/statistics/use-get-statistics";
 
 const hourlyVisitors = [
   { hour: "00시", value: 150 },
@@ -90,8 +67,57 @@ const dateFormatter = new Intl.DateTimeFormat("ko-KR", {
 });
 
 const StatisticsPage = () => {
+  const { data, isLoading } = useGetStatistics();
   const today = dateFormatter.format(new Date());
   const peakVisitors = Math.max(...hourlyVisitors.map((item) => item.value));
+
+  // API 데이터가 없을 때 기본값 처리
+  if (isLoading || !data) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-gray-50">
+        <p className="text-gray-500">통계 데이터를 불러오는 중...</p>
+      </main>
+    );
+  }
+
+  // API 데이터를 기반으로 메트릭 계산
+  const todayVisitors = data.users.todayNewUsers || data.users.activeUsers || 0;
+  const productClicks = data.products.totalViewCount || 0;
+  const completedOrders = data.orders.completedOrders || data.orders.todayOrders || 0;
+  const refundCount = data.orders.canceledOrders || 0;
+
+  // 전환율 계산
+  const conversionRate =
+    productClicks > 0
+      ? ((completedOrders / productClicks) * 100).toFixed(1)
+      : "0.0";
+
+  const overviewMetrics = [
+    {
+      label: "오늘 방문자 수",
+      value: todayVisitors,
+      change: "+6.8%",
+      helper: `전체 사용자 ${numberFormatter.format(data.users.totalUsers)}명`,
+    },
+    {
+      label: "상품 상세 클릭 수",
+      value: productClicks,
+      change: "+5.6%",
+      helper: `체험 ${numberFormatter.format(data.experiences.totalViewCount)}회 · 숙소 ${numberFormatter.format(data.accommodations.totalViewCount)}회`,
+    },
+    {
+      label: "구매 완료 수",
+      value: completedOrders,
+      change: "+3.1%",
+      helper: `전환율 ${conversionRate}%`,
+    },
+    {
+      label: "환불 접수 건수",
+      value: refundCount,
+      change: "-1.6%",
+      helper: `환불 금액 ${numberFormatter.format(data.payments.refundAmount)}원`,
+    },
+  ];
 
   return (
     <main className="flex min-h-screen flex-col gap-8 bg-gray-50 px-8 pb-20 pt-10">
