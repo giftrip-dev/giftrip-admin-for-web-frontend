@@ -15,14 +15,13 @@ export const useGetStatistics = () => {
     return getStatistics();
   };
 
-  const { data, error, mutate, isValidating } = useSWR<StatisticsResponse, Error>(
-    key,
-    fetcher,
-    {
-      suspense: isClient,
-      keepPreviousData: true,
-    },
-  );
+  const { data, error, mutate, isValidating } = useSWR<
+    StatisticsResponse,
+    Error
+  >(key, fetcher, {
+    suspense: isClient,
+    keepPreviousData: true,
+  });
 
   return {
     data,
@@ -32,4 +31,3 @@ export const useGetStatistics = () => {
     mutate,
   };
 };
-

@@ -108,4 +108,3 @@ export interface StatisticsResponse {
     todaySent: number;
   };
 }
-

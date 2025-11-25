@@ -11,4 +11,3 @@ export const getStatistics = async (): Promise<StatisticsResponse> => {
     throw new Error("통계 조회에 실패했습니다.");
   }
 };
-
